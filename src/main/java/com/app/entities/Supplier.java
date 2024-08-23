@@ -2,21 +2,26 @@ package com.app.entities;
 
 import java.util.Set;
 
-import javax.persistence.CollectionTable;
-import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import lombok.Getter;
+import lombok.Setter;
 
 
 @Entity
 @Table(name = "suppliers")
+@Getter
+@Setter
 public class Supplier {
 
     @Id
@@ -32,17 +37,9 @@ public class Supplier {
     @Enumerated(EnumType.STRING)
     private NatureOfBusiness natureOfBusiness;
 
-    @ElementCollection(targetClass = ManufacturingProcess.class)
-    @CollectionTable(name = "supplier_processes", joinColumns = @JoinColumn(name = "supplier_id"))
+    @ElementCollection(fetch = FetchType.LAZY)
     @Enumerated(EnumType.STRING)
-    @Column(name = "process")
+    @JsonIgnore  // Ignore this field during serialization
     private Set<ManufacturingProcess> manufacturingProcesses;
-
-    public enum NatureOfBusiness {
-        SMALL_SCALE, MEDIUM_SCALE, LARGE_SCALE
-    }
-
-    public enum ManufacturingProcess {
-        MOULDING, PRINTING_3D, CASTING, COATING
-    }
+    
 }
