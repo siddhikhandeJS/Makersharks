@@ -20,7 +20,8 @@ Use Spring Boot to build the RESTful API.
 3. Expected Response: The API should return a list of manufacturers matching the given criteria, including their supplier_id, company_name, website, location, nature_of_business, and manufacturing_processes.
 
 **Instructions on how to run the application and any other relevant information.**
-** 1. Ensure Your Development Environment is Set Up**
+
+**1. Ensure Your Development Environment is Set Up**
 Before running your application, ensure you have the following installed:
 1. Java Development Kit (JDK): Ensure you have JDK 8 or above installed.
 2. Spring Tool Suite (STS): STS is an IDE specifically tailored for Spring applications.
