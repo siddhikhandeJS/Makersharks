@@ -1,6 +1,8 @@
 # Makersharks
 Makersharks is building a search page where buyers can search for manufacturers based on their customised requirements.
 Use Spring Boot to build the RESTful API.
+Java Version 11
+STS version 3.9.18
 
 
 **Supplier  Details:**
